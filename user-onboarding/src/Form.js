@@ -9,7 +9,8 @@ export default function newUser(props) {
     }
     const onChange = evt => {
         const { name, value, checked, type } = evt.target
-        change(name, value)
+        const valueToUse = type === 'checkbox' ? checked : value; 
+        change(name, valueToUse)
 
     }
     return (
@@ -21,6 +22,7 @@ export default function newUser(props) {
                 <div>{errors.lastName}</div>
                 <div>{errors.email}</div>
                 <div>{errors.password}</div>
+                <div>{errors.service}</div>
             </div>
       
             <div>
@@ -61,6 +63,15 @@ export default function newUser(props) {
                     />
                 </label>
             </div>
+            <label>Accept Terms of Service.
+                <input
+                    type="checkbox"
+                    name="agree"
+                    onChange={onChange}
+                    checked={values.agree}
+                />
+            </label>
+
         </form>
     )
 };

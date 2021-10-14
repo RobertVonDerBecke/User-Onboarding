@@ -12,13 +12,15 @@ const intialFormValues ={
   firstName: '',
   lastName: '',
   email: '',
-  password: ''
+  password: '',
+  agree: false
 }
 const intialErr = {
   firstName: '',
   lastName: '',
   email: '',
-  password: ''
+  password: '',
+  agree: false
 }
 const intialdisabled = true;
 function App() {
@@ -34,9 +36,9 @@ function App() {
       console.log(res)
       setUsers([res.data, ...users]);
     }).catch(err => {console.error(err)})
-    // .finally(() => {
-    //   setFormValues(intialFormValues)
-    // })
+    .finally(() => {
+      setFormValues(intialFormValues)
+    })
   }
   const validate = (name, value) => {
     yup.reach(schema, name)

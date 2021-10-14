@@ -9,6 +9,7 @@ function User({ details }) {
     <div className='container'>
       <h2>{details.firstName} {details.lastName}</h2>
       <p>Email: {details.email}</p>
+      <p>Agreed to Terms of Service: {details.agree ? 'Yes' : 'No'}</p>
     </div>
   )
 }

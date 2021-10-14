@@ -18,8 +18,9 @@ const formSchema = yup.object().shape({
     password: yup
         .string()
         .required(),
-    TermsOfService: yup
-        .boolean(),
+    agree: yup
+        .boolean()
+        .required('You must agree to terms of service!')
 });
 
 export default formSchema;
