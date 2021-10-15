@@ -9,7 +9,7 @@ describe('New User Form', () => {
     const passInput = () => cy.get('input[name=password]')
     const checkBox = () => cy.get('[type="checkbox"]')
     const submitBtn = () => cy.get('button');
-    const errorDiv = () => cy.get('errors');
+    const errorDiv = () => cy.get('.errors');
     //test tests
     it('sanity check to make sure test work', () => {
         //its a test
@@ -46,5 +46,12 @@ describe('New User Form', () => {
         checkBox().check();
         submitBtn().click();
         textLastInput().should('have.value', '');
+    })
+    describe('Check for validation message', () => {
+        it('Test for validation message', () => {
+            textInput().type('hi');
+            errorDiv().siblings().should('be.visible');
+
+        })
     })
 })
