@@ -24,3 +24,6 @@ body {
   background-color: white;
   margin-bottom: 24px;
 }
+.errors {
+  color: red;
+}
